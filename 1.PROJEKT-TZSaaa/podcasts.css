@@ -1,0 +1,276 @@
+@media screen and (max-width: 640px) {
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(255, 255, 255);
+        /*background-image: url('img/backgIMG.jpg');*/
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .main--header {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 15%;
+        background: rgba(0, 0, 0, 0.678); /* Półprzezroczyste tło */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+
+    /* Menu */
+    .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.788);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        justify-content: flex-start;
+        padding-top: 10%;
+        transition: left 0.5s ease-in-out;
+        color: white;
+        font-size: 20px;
+    }
+
+    .menu-overlay.active {
+        left: 0;
+    }
+    .main--header {
+        display: flex;
+        align-items: center; /* Wyśrodkowanie pionowe */
+        justify-content: space-between; /* Logo z lewej, menu z prawej */
+    }
+
+    .close-menu {
+        position: absolute;
+        top: 2%;
+        right: 5%;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .inMenu--h1 {
+        text-align: center;
+        margin-top: 5%;
+        font-size: 2rem;
+    }
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .inMenu--list {
+        padding: 3%;
+        margin-left: 2%;
+    }
+
+    .inMenu--element {
+        padding: 2%;
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    #IM5 a {
+        color: #e9a835;
+    }
+
+    .header--menu {
+        all: unset;
+        float: right;
+        color: white;
+        margin-right: 5%;
+        font-size: 2rem;
+        font-weight: bold;
+        cursor: pointer;
+        animation: menu 0.4s ease-in-out 1;
+        animation-delay: 0.5s;
+    }
+
+    @keyframes slide-in2 {
+        0% {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Animacja elementów menu po aktywacji */
+    .menu-overlay.active #IM1 { animation: slide-in2 0.5s ease-in-out 0.2s forwards; }
+    .menu-overlay.active #IM2 { animation: slide-in2 0.5s ease-in-out 0.4s forwards; }
+    .menu-overlay.active #IM3 { animation: slide-in2 0.5s ease-in-out 0.6s forwards; }
+    .menu-overlay.active #IM4 { animation: slide-in2 0.5s ease-in-out 0.8s forwards; }
+    .menu-overlay.active #IM5 { animation: slide-in2 0.5s ease-in-out 1s forwards; }
+    .menu-overlay.active #IM6 { animation: slide-in2 0.5s ease-in-out 1.2s forwards; }
+
+    .podcast-list {
+        display: flex; /* Ustawia elementy wewnątrz jako flexbox, co pozwala łatwo je rozmieszczać */
+        flex-direction: column; /* Ustawia kierunek układu elementów w kolumnie (jeden pod drugim) */
+        gap: 20px;
+        max-width: 80%; /* Ogranicza maksymalną szerokość do 80% szerokości ekranu */
+        margin: auto; /* Centruje kontener poziomo */
+        padding: 20px;
+        animation: slide-in2 1s ease-in-out 1;
+    }    
+    
+    .podcast-list--block {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 2%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .podcast-list--img {
+        width: 120px;
+        height: 120px;
+        border-radius: 10px;
+        margin-right: 2%;
+    }
+    
+    .podcast-list--title h3 {
+        font-size: 1.2em;
+        color: rgb(0, 0, 0);
+        margin-bottom: 5px;
+    }
+    
+    .podcast-list--title p {
+        font-size: 1em;
+        color: gray;
+    }
+    
+   .podcast-list--hrefs {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie ikon */
+    gap: 5%; /* Równe odstępy między ikonami */
+    margin-top: 2%;
+}
+
+.podcast-list--hrefs img {
+    width: 4vh; /* Dynamiczna wielkość w % */
+    height: auto; /* Zachowanie proporcji */
+    max-width: 50px; /* Ograniczenie maksymalnego rozmiaru */
+    object-fit: contain; /* Zapobiega rozciąganiu ikon */
+    border-radius: 7px;
+}
+
+.mel {
+        color: black !important;
+}
+   
+.podcast-list--title {
+    width: 100%; 
+    text-align: left; 
+}
+.podcast-list--hrefs {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie */
+    gap: 5%; /* Równe odstępy */
+    width: 100%; /* Pełna szerokość */
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+    filter: brightness(0) invert(1);
+}
+
+.social-icon {
+    width: 1.5rem; /* Mniejsze ikony */
+    margin: 0 30px; /* Odstępy między ikonami */
+}
+
+.footer-copyright {
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
+    margin-top: 2vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.footer-copyright--creator {
+    color: #e9a835;
+    animation: underlineAnimation 2s infinite;
+}
+.footer-copyright--creator {
+    color: #e9a835;
+    position: relative;
+    text-decoration: none;
+}
+
+.footer-copyright--creator::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 1px; /* Zmniejszona grubość kreski */
+    background-color: #ffffff;
+}
+
+/* Animacja podkreślenia */
+@keyframes underlineAnimation {
+    0% { width: 0%; }
+    50% { width: 100%; } /* Pełne podkreślenie */
+    100% { width: 0%; } /* Powrót do 0% */
+}
+
+/* Aktywowanie animacji po otwarciu menu */
+.menu-overlay.active .footer-copyright--creator::after {
+    animation: underlineAnimation 2.5s ease-in-out;
+}
+.main--header {
+    position: sticky;
+    z-index: 1000; /* Upewnia się, że menu jest nad innymi elementami */
+}
+.down-section--name {
+    position: absolute;
+    bottom: 0;
+    z-index: 1; /* Zapewnia, że sekcja jest niżej niż menu */
+}
+.footer-container {
+    position: fixed;
+    bottom: 5vh; /* Przesunięcie stopki o 5% wysokości ekranu */
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: transparent;
+    padding: 1rem 0; /* Minimalna przestrzeń wewnątrz */
+}
+
+
+
+    
+    
+
+
+
+
+
+}
+
