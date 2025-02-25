@@ -25,3 +25,9 @@ function disableZoom() {
         event.preventDefault();
     });
 }
+window.addEventListener("scroll", function () {
+    document.querySelectorAll(".podcast-list--hrefs img").forEach((icon) => {
+        let scaleFactor = 1 + window.scrollY / 1000; // Skaluje ikonki
+        icon.style.transform = `scale(${scaleFactor})`;
+    });
+});
