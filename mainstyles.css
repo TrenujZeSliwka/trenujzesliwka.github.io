@@ -8,7 +8,7 @@ body {
 }    
 body {
     margin: 0px;
-    background-image: url('img/back.jpeg');
+    background-image: url('img/TLOTESTtataiMessages.jpeg'); /*back.jpeg*/
     background-size: cover; /* Rozciąga tło na cały ekran */
     background-position: center; /* Wyśrodkowanie obrazu */
     background-repeat: no-repeat; /* Nie powtarza obrazu */
