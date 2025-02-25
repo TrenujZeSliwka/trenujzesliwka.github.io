@@ -316,13 +316,13 @@
 }
 .footer-container {
     position: fixed;
-    bottom: 5vh; /* Przesunięcie stopki o 5% wysokości ekranu */
+    bottom: 5dvh; /* Zamiast 5vh */
     left: 0;
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, 0.288);
     padding: 1rem 0; /* Minimalna przestrzeń wewnątrz */
 }
 .contact-info {
