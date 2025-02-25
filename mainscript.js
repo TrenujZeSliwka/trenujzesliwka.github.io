@@ -31,3 +31,13 @@ window.addEventListener("scroll", function () {
         icon.style.transform = `scale(${scaleFactor})`;
     });
 });
+if (navigator.userAgent.indexOf("Safari") !== -1 && navigator.userAgent.indexOf("Chrome") === -1) {
+    document.querySelectorAll(".podcast-list--hrefs img").forEach((icon) => {
+        icon.style.transform = "scale(1)";
+    });
+}
+document.querySelectorAll(".podcast-list--hrefs img").forEach((icon) => {
+    icon.style.transform = "scale(1)";
+    icon.style.transition = "none";
+});
+
