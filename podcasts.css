@@ -54,13 +54,19 @@
 
     .close-menu {
         position: absolute;
-        top: 2%;
-        right: 5%;
+        top: 2vh; /* Zamiast procentów, teraz w jednostkach vh */
+        right: 2vw; /* Używamy vw dla lepszego dopasowania */
         background: none;
         border: none;
         color: white;
         font-size: 2rem;
         cursor: pointer;
+        line-height: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 5vh; /* Stały rozmiar w vh */
+        height: 5vh;
     }
     a {
         text-decoration: none;
