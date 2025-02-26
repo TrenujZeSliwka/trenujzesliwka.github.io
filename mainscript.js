@@ -40,4 +40,19 @@ document.querySelectorAll(".podcast-list--hrefs img").forEach((icon) => {
     icon.style.transform = "scale(1)";
     icon.style.transition = "none";
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const button = document.querySelector(".upToHeader");
 
+    if (!button) {
+        console.error("Przycisk nie został znaleziony!");
+        return;
+    }
+
+    window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+            button.classList.add("visible");
+        } else {
+            button.classList.remove("visible");
+        }
+    });
+});
