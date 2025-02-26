@@ -8,6 +8,7 @@
     }    
     
     body {
+        font-family: Arial, Helvetica, sans-serif;
         margin: 0px;
         background-color: white;
         background-size: cover; /* Rozciąga tło na cały ekran */
@@ -279,7 +280,6 @@
 }
 .footer-copyright--creator {
     color: #e9a835;
-    animation: underlineAnimation 2s infinite;
 }
 .footer-copyright--creator {
     color: #e9a835;
@@ -305,7 +305,7 @@
 }
 
 /* Aktywowanie animacji po otwarciu menu */
-.menu-overlay.active .footer-copyright--creator::after {
+.menu-overlay.active::after {
     animation: underlineAnimation 2.5s ease-in-out;
 }
 
