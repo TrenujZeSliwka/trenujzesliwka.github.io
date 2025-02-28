@@ -97,7 +97,7 @@
         transform: translateX(-100px);
     }
 
-    #IM5 a {
+    #IM6 a {
         color: #e9a835;
     }
 
@@ -202,30 +202,6 @@
     align-items: center;
     background-color: transparent;
     padding: 1rem 0; /* Minimalna przestrzeń wewnątrz */
-}
-.upToHeader {
-    position: fixed;
-    bottom: 1.5dvw; /* Przyklejony na dole */
-    right: 1.5dvw; /* Przyklejony do prawej */
-    
-    width: 2rem; /* Rozmiar przycisku */
-    height: 2rem;
-    border-radius: 0;
-    background-color: rgba(0, 0, 0, 0.6); /* Półprzezroczyste tło */
-    backdrop-filter: blur(5px); /* Efekt rozmycia */
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    text-align: center;
-    
-    pointer-events: auto; /* Zapewnia, że można kliknąć */
-    
-    z-index: 5; /* Niski z-index, żeby menu było nad nim */
-    transition: opacity 0.3s ease-in-out, visibility 0.3s;
-    border: none;
-    border-radius: 50%;
 }
 
     
