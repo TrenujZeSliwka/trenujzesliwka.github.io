@@ -389,8 +389,7 @@
   
   .omnie-info p {
     font-size: 16px;
-    color: #555;
-    margin: 5px 0;
+    color: #000000;
   }
   
   .menu-overlay {
@@ -398,6 +397,61 @@
 }
 .omnie-section {
     animation: slide-in2 1.2s ease-out 0.5s both;
+}
+
+
+
+div.gallery {
+    margin: 1.5rem auto; /* Większy margines i centrowanie */
+    border: 0.12rem solid #ccc;
+    width: 90%; /* Jeszcze większa szerokość */
+    max-width: 700px; /* Zwiększony maksymalny rozmiar */
+    display: block;
+}
+
+div.gallery img {
+    width: 100%;
+    height: auto;
+}
+
+div.desc {
+    padding: 1rem; /* Jeszcze większy padding */
+    text-align: center;
+    font-size: 1rem; /* Większy tekst */
+}
+.allgal {
+    animation: slide-in2 1.2s ease-out 0.5s both;
+}
+
+
+.collab-main-a {
+    display: flex; /* Ustawia elementy wewnątrz jako flexbox, co pozwala łatwo je rozmieszczać */
+    flex-direction: column; /* Ustawia kierunek układu elementów w kolumnie (jeden pod drugim) */
+    gap: 4vh;
+    max-width: 90%;
+    margin: auto; /* Centruje kontener poziomo */
+    padding: 20px;
+}    
+
+.collab-main--block-a {
+    height: 7vh; /* lub inna wartość w vh, px, %, rem */
+    display: flex;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    padding: 2%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.collab-main--text-a h3 {
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+    line-height: 7vh;
+    text-align: center;
+}
+
+.collab-main--text-a {
+    width: 100%; 
 }
 
 
