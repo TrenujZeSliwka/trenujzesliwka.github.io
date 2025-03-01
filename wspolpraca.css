@@ -210,7 +210,7 @@
     display: flex; /* Ustawia elementy wewnątrz jako flexbox, co pozwala łatwo je rozmieszczać */
     flex-direction: column; /* Ustawia kierunek układu elementów w kolumnie (jeden pod drugim) */
     gap: 20px;
-    max-width: 80%; /* Ogranicza maksymalną szerokość do 80% szerokości ekranu */
+    max-width: 90%; /* Ogranicza maksymalną szerokość do 80% szerokości ekranu */
     margin: auto; /* Centruje kontener poziomo */
     padding: 20px;
     animation: slide-in2 1s ease-in-out 1;
@@ -250,7 +250,7 @@ margin-left: 3vh;
     display: flex; /* Ustawia elementy wewnątrz jako flexbox, co pozwala łatwo je rozmieszczać */
     flex-direction: column; /* Ustawia kierunek układu elementów w kolumnie (jeden pod drugim) */
     gap: 20px;
-    max-width: 80%;
+    max-width: 90%;
     margin: auto; /* Centruje kontener poziomo */
     padding: 20px;
     animation: slide-in2 1s ease-in-out 1;
