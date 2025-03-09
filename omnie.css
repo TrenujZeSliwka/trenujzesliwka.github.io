@@ -9,9 +9,11 @@
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
     }    
-    
+    h1,h2,p {
+        font-family: Arial;
+    }
     body {
-        font-family: 'Yatra One';
+        font-family: Arial;
         margin: 0px;
         background-color: white;
         background-size: cover; /* Rozciąga tło na cały ekran */
@@ -380,16 +382,19 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
     box-sizing: border-box;
+    font-family: Arial;
   }
   
   .omnie-info h3 {
     font-size: 20px;
     color: #0e0e0e;
+    font-family: Arial;
   }
   
   .omnie-info p {
     font-size: 16px;
     color: #000000;
+    font-family: Arial;
   }
   
   .menu-overlay {
