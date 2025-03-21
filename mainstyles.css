@@ -5,7 +5,7 @@
         padding: 0;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        font-family: 'Yatra One';
+        font-family: Arial, Helvetica, sans-serif;
     }    
     body {
         margin: 0px;
@@ -173,11 +173,10 @@
     
     /* Animacja po aktywacji menu */
     .menu-overlay.active #IM1 { animation: slide-in2 0.5s ease-in-out 0.2s forwards; }
-    .menu-overlay.active #IM2 { animation: slide-in2 0.5s ease-in-out 0.4s forwards; }
-    .menu-overlay.active #IM3 { animation: slide-in2 0.5s ease-in-out 0.6s forwards; }
-    .menu-overlay.active #IM4 { animation: slide-in2 0.5s ease-in-out 0.8s forwards; }
+    .menu-overlay.active #IM4 { animation: slide-in2 0.5s ease-in-out 0.4s forwards; }
+    .menu-overlay.active #IM6 { animation: slide-in2 0.5s ease-in-out 0.6s forwards; }
+    .menu-overlay.active #IM2 { animation: slide-in2 0.5s ease-in-out 0.8s forwards; }
     .menu-overlay.active #IM5 { animation: slide-in2 0.5s ease-in-out 1s forwards; }
-    .menu-overlay.active #IM6 { animation: slide-in2 0.5s ease-in-out 1.2s forwards; }
     
     .social-icons {
         display: flex;
