@@ -215,7 +215,6 @@
     max-width: 90%; /* Ogranicza maksymalną szerokość do 80% szerokości ekranu */
     margin: auto; /* Centruje kontener poziomo */
     padding: 20px;
-    animation: slide-in2 1s ease-in-out 1;
 }    
 
 .collab-main--block {
@@ -255,7 +254,6 @@ margin-left: 3vh;
     max-width: 90%;
     margin: auto; /* Centruje kontener poziomo */
     padding: 20px;
-    animation: slide-in2 1s ease-in-out 1;
 }    
 
 .collab-main--block-a {
@@ -294,10 +292,18 @@ margin-left: 3vh;
     text-align: left;
     margin-bottom: 4vh;
   }
-  .omnie-section {
+  
+.font--block {
+    font-size: 2.5vh;
+}
+.collab-main--block {
+    font-weight: 200;
+    line-height: 1.5rem;
+    letter-spacing: 0.06em; 
+}
+.slide--in {
     animation: slide-in2 1.2s ease-out 0.5s both;
 }
-
 }
 
 
