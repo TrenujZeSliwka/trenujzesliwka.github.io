@@ -271,7 +271,35 @@
     background-color: transparent;
     padding: 1rem 0; /* Minimalna przestrzeń wewnątrz */
 }
+.collab-main-a {
+    display: flex; /* Ustawia elementy wewnątrz jako flexbox, co pozwala łatwo je rozmieszczać */
+    flex-direction: column; /* Ustawia kierunek układu elementów w kolumnie (jeden pod drugim) */
+    gap: 4vh;
+    max-width: 90%;
+    margin: auto; /* Centruje kontener poziomo */
+    padding: 20px;
+}    
 
+.collab-main--block-a {
+    height: 7vh; /* lub inna wartość w vh, px, %, rem */
+    display: flex;
+    align-items: center;
+    color: rgb(0, 0, 0);
+    border-radius: 15px;
+    padding: 2%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.collab-main--text-a h3 {
+    font-size: 1.2em;
+    color: rgb(0, 0, 0);
+    line-height: 7vh;
+    text-align: center;
+}
+
+.collab-main--text-a {
+    width: 100%; 
+}
 
 }
 
