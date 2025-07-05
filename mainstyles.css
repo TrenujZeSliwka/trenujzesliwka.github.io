@@ -109,6 +109,11 @@
         width: 5vh; /* Stały rozmiar w vh */
         height: 5vh;
     }
+
+    #menuIcon {
+        width: 2rem;
+        height: auto;
+    }
     
     a {
         text-decoration: none;
