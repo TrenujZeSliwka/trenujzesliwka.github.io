@@ -9,7 +9,7 @@
     }    
     body {
         margin: 0px;
-        background-image: url('img/101.jpeg'); /*back.jpeg*/
+        background-image: url('img/mainpagephoto.jpeg'); /*back.jpeg*/
         background-size: cover; /* Rozciąga tło na cały ekran */
         background-position: center; /* Wyśrodkowanie obrazu */
         background-repeat: no-repeat; /* Nie powtarza obrazu */
@@ -40,7 +40,7 @@
         left: -100%; /* poza ekranem start*/
         padding: 2%;
         width: 70%;
-        background-color: #004bad8c;
+        background-color: #004bad;
         text-align: center;
         color: white;
         border-top-right-radius: 25px;
