@@ -1,109 +1,84 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="mainscript.js"></script>
-    <link rel="stylesheet" href="mainstyles.css">
-    <link rel="shortcut icon" href="img/LogotzsPNG.PNG" type="png">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "url": "https://trenujzesliwka.github.io/",
-      "logo": "https://trenujzesliwka.github.io/img/LogotzsPNG.PNG"
-    }
-    </script>
-    <title>Trenuj ze Śliwką</title>
-     <meta name="description" content="Trenuj ze Śliwką – oficjalna strona Marcina Śliwińskiego. Profesjonalny trener personalny z Gdyni (Trójmiasto). Oferuję treningi personalne, plany treningowe i zdrowy styl życia. Szukasz hasła 'trenuj ze śliwką'? To jesteś we właściwym miejscu! Trener personalny Gdynia, trener personalny Trójmiasto – sprawdź ofertę.">
-  
-  <!-- SEO dodatkowe -->
-  <meta name="keywords" content="trenuj ze śliwką, trenuj ze sliwka strona internetowa, Marcin Śliwiński, trener personalny Gdynia, trener personalny Trójmiasto, trening personalny, siłownia, fitness, zdrowie, trening indywidualny, ćwiczenia, trener Gdynia, trener Trójmiasto">
-  
-  <!-- Open Graph (Facebook, Instagram, LinkedIn podglądy linku) -->
-  <meta property="og:title" content="Trenuj ze Śliwką – Trener personalny Gdynia / Trójmiasto">
-  <meta property="og:description" content="Marcin Śliwiński – trener personalny Gdynia, Trójmiasto. Profesjonalne treningi personalne, siłownia, fitness i zdrowy styl życia.">
-  <meta property="og:url" content="https://trenujzesliwka.github.io/">
-  <meta property="og:type" content="website">
-  
-  <!-- Twitter card (podglądy na Twitter/X) -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Trenuj ze Śliwką – Trener personalny Gdynia / Trójmiasto">
-  <meta name="twitter:description" content="Marcin Śliwiński – profesjonalny trener personalny z Gdyni. Treningi personalne, siłownia i fitness w Trójmieście.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="mainstyles.css">
+<link rel="shortcut icon" href="img/LogotzsPNG.PNG" type="image/png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "url": "https://trenujzesliwka.github.io/",
+  "logo": "https://trenujzesliwka.github.io/img/LogotzsPNG.PNG"
+}
+</script>
+
+<title>Trenuj ze Śliwką</title>
+<meta name="description" content="Trenuj ze Śliwką – oficjalna strona Marcina Śliwińskiego. Profesjonalny trener personalny z Gdyni (Trójmiasto). Oferuję treningi personalne, plany treningowe i zdrowy styl życia. Szukasz hasła 'trenuj ze śliwką'? To jesteś we właściwym miejscu! Trener personalny Gdynia, trener personalny Trójmiasto – sprawdź ofertę.">
+<meta name="keywords" content="trenuj ze śliwką, trenuj ze sliwka strona internetowa, Marcin Śliwiński, trener personalny Gdynia, trener personalny Trójmiasto, trening personalny, siłownia, fitness, zdrowie, trening indywidualny, ćwiczenia, trener Gdynia, trener Trójmiasto">
+<meta property="og:title" content="Trenuj ze Śliwką – Trener personalny Gdynia / Trójmiasto">
+<meta property="og:description" content="Marcin Śliwiński – trener personalny Gdynia, Trójmiasto. Profesjonalne treningi personalne, siłownia, fitness i zdrowy styl życia.">
+<meta property="og:url" content="https://trenujzesliwka.github.io/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Trenuj ze Śliwką – Trener personalny Gdynia / Trójmiasto">
+<meta name="twitter:description" content="Marcin Śliwiński – profesjonalny trener personalny z Gdyni. Treningi personalne, siłownia i fitness w Trójmieście.">
 </head>
 <body>
-    <header class="main--header">
-        <img class="header--logo" src="img/LogotzsPNG.PNG" alt="Logo" width="100px">
-        <button class="header--menu" onclick="toggleMenu()"><img id="menuIcon" class="social-icon" src="img/menu.png" alt="Menu"></button>
+<header class="main--header">
+    <img class="header--logo" src="img/LogotzsPNG.PNG" alt="Logo" width="100px">
+    <button class="header--menu" onclick="toggleMenu()"><img id="menuIcon" class="social-icon" src="img/menu.png" alt="Menu"></button>
 
-        <div class="menu-overlay">
-            <button class="close-menu" onclick="toggleMenu()"><img id="menuIcon" class="social-icon" src="img/ClosedMenu.png" alt="ClosedMenu"></button>
-            <h1 class="inMenu--h1">Trenuj ze Śliwką</h1>
-            <ul class="inMenu--list">
-                <li id="IM1" class="inMenu--element"><a href="index.html">Strona główna</a></li>
-                <li id="IM4" class="inMenu--element"><a href="omnie.html">O mnie</a></li>
-                <li id="IM6" class="inMenu--element"><a href="wspolpraca.html">Współpraca</a></li>
-                <li id="IM2" class="inMenu--element"><a href="kontakt.html">Kontakt</a></li>
-                <li id="IM5" class="inMenu--element"><a href="podcasts.html">Podcast</a></li>
-            </ul>
-            <div class="footer-container">
-                <div class="social-icons">
-                    <a href="https://www.instagram.com/trenuj_ze_sliwka/"><img class="social-icon" src="img/igMenu.svg" alt="Instagram"></a>
-                    <a href="https://www.tiktok.com/@trenuj_ze_sliwka"><img class="social-icon" src="img/tiktokMenu.svg" alt="TikTok"></a>
-                    <a href="https://www.facebook.com/p/Trenuj-ze-%C5%9Aliwk%C4%85-61554213402612/"><img class="social-icon" src="img/facebookMenu.svg" alt="Facebook"></a>
-                    <a href="https://pl.linkedin.com/in/marcin-%C5%9Bliwi%C5%84ski-0703a8294"><img class="social-icon" src="img/LinkedInIkoneczka.png" alt="LnkedIn"></a>
-                </div>
-                <p class="footer-copyright">&copy; 2025 Marcin Śliwiński | Realizacja: 
-                    <a href="https://gracjan-gs.github.io/">
-                        <span class="footer-copyright--creator">Gracjan Śliwiński</span>
-                    </a>
-                </p>            
-            </div>            
-    </header>
-    <section class="down-section--name">
-        <h2 class="down-section--h2">TRENER PERSONALNY</h2>
-        <h1 class="down-section--h1">MARCIN ŚLIWIŃSKI</h1>
-    </section>
-    <!--
-    <section class="main-menu">
-        <ul class="main-menu-links">
-            <a href="">
-                <li>Strona Główna</li>
-            </a>
-            <a href="">
-                <li>Kontakt</li>
-            </a>
-            <a href="">
-                <li>Współpraca</li>
-            </a>
-            <a href="">
-                <li>O mnie</li>
-            </a>
-            <a href="">
-                <li>Podcast</li>
-            </a>
-            <a href="">
-                <li>Blog</li>
-            </a>
+    <div class="menu-overlay">
+        <button class="close-menu" onclick="toggleMenu()"><img id="menuIcon" class="social-icon" src="img/ClosedMenu.png" alt="ClosedMenu"></button>
+        <h1 class="inMenu--h1">Trenuj ze Śliwką</h1>
+        <ul class="inMenu--list">
+            <li id="IM1" class="inMenu--element"><a href="index.html">Strona główna</a></li>
+            <li id="IM4" class="inMenu--element"><a href="omnie.html">O mnie</a></li>
+            <li id="IM6" class="inMenu--element"><a href="wspolpraca.html">Współpraca</a></li>
+            <li id="IM2" class="inMenu--element"><a href="kontakt.html">Kontakt</a></li>
+            <li id="IM5" class="inMenu--element"><a href="podcasts.html">Podcast</a></li>
         </ul>
-    </section>
-    -->
-    
-    <div class="desktop-block">
-        <img src="img/LogotzsPNG.PNG" alt="Logo">
-        <h1>TRENUJ ZE ŚLIWKĄ</h1>
-        <h3>Dziękuję za odwiedzenie mojej strony! Wersja na tablety i komputery jest jeszcze niedostępna. Serdecznie zapraszam do korzystania na urządzeniach mobilnych.</h3>
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/trenuj_ze_sliwka/"><img class="social-icon" src="img/igMenu.svg" alt="Instagram"></a>
+                <a href="https://www.tiktok.com/@trenuj_ze_sliwka"><img class="social-icon" src="img/tiktokMenu.svg" alt="TikTok"></a>
+                <a href="https://www.facebook.com/p/Trenuj-ze-%C5%9Aliwk%C4%85-61554213402612/"><img class="social-icon" src="img/facebookMenu.svg" alt="Facebook"></a>
+                <a href="https://pl.linkedin.com/in/marcin-%C5%9Bliwi%C5%84ski-0703a8294"><img class="social-icon" src="img/LinkedInIkoneczka.png" alt="LinkedIn"></a>
+            </div>
+            <p class="footer-copyright">&copy; 2025 Marcin Śliwiński | Realizacja: 
+                <a href="https://gracjan-gs.github.io/"><span class="footer-copyright--creator">Gracjan Śliwiński</span></a>
+            </p>            
+        </div>            
+</header>
+
+<section class="down-section-home">
+  <div class="container">
+    <h2>Marcin Śliwiński</h2>
+    <p>Zdrowie, siła i forma w jednym miejscu – indywidualne podejście do klienta</p>
+    <div class="buttons">
+      <a href="kontakt.html" class="btn btn-blue">Umów trening</a>
+      <a href="tel:+48505848210" class="btn btn-white">Skontaktuj się</a>
+    </div>
+  </div>
+</section>
+
+
+
+<div class="desktop-block">
+    <img src="img/LogotzsPNG.PNG" alt="Logo">
+    <h1>TRENUJ ZE ŚLIWKĄ</h1>
+    <h3>Dziękuję za odwiedzenie mojej strony! Wersja na tablety i komputery jest jeszcze niedostępna. Serdecznie zapraszam do korzystania na urządzeniach mobilnych.</h3>
     <div class="social-icons">
         <a href="https://www.instagram.com/trenuj_ze_sliwka/"><img class="social-icon" src="img/igMenu.svg" alt="Instagram"></a>
         <a href="https://www.tiktok.com/@trenuj_ze_sliwka"><img class="social-icon" src="img/tiktokMenu.svg" alt="TikTok"></a>
         <a href="https://www.facebook.com/p/Trenuj-ze-%C5%9Aliwk%C4%85-61554213402612/"><img class="social-icon" src="img/facebookMenu.svg" alt="Facebook"></a>
      </div>
-    </div>
+</div>
 
+<script src="mainscript.js"></script>
 </body>
 </html>
-
-
-
-
-
