@@ -28,57 +28,1167 @@
 <meta name="twitter:description" content="Marcin Śliwiński – profesjonalny trener personalny z Gdyni. Treningi personalne, siłownia i fitness w Trójmieście.">
 </head>
 <body>
-<header class="main--header">
-    <img class="header--logo" src="img/LogotzsPNG.PNG" alt="Logo" width="100px">
-    <button class="header--menu" onclick="toggleMenu()"><img id="menuIcon" class="social-icon" src="img/menu.png" alt="Menu"></button>
+<style>
 
-    <div class="menu-overlay">
-        <button class="close-menu" onclick="toggleMenu()"><img id="menuIcon" class="social-icon" src="img/ClosedMenu.png" alt="ClosedMenu"></button>
-        <h1 class="inMenu--h1">Trenuj ze Śliwką</h1>
-        <ul class="inMenu--list">
-            <li id="IM1" class="inMenu--element"><a href="index.html">Strona główna</a></li>
-            <li id="IM4" class="inMenu--element"><a href="omnie.html">O mnie</a></li>
-            <li id="IM6" class="inMenu--element"><a href="wspolpraca.html">Współpraca</a></li>
-            <li id="IM2" class="inMenu--element"><a href="kontakt.html">Kontakt</a></li>
-            <li id="IM5" class="inMenu--element"><a href="podcasts.html">Podcast</a></li>
-        </ul>
-        <div class="footer-container">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/trenuj_ze_sliwka/"><img class="social-icon" src="img/igMenu.svg" alt="Instagram"></a>
-                <a href="https://www.tiktok.com/@trenuj_ze_sliwka"><img class="social-icon" src="img/tiktokMenu.svg" alt="TikTok"></a>
-                <a href="https://www.facebook.com/p/Trenuj-ze-%C5%9Aliwk%C4%85-61554213402612/"><img class="social-icon" src="img/facebookMenu.svg" alt="Facebook"></a>
-                <a href="https://pl.linkedin.com/in/marcin-%C5%9Bliwi%C5%84ski-0703a8294"><img class="social-icon" src="img/LinkedInIkoneczka.png" alt="LinkedIn"></a>
-            </div>
-            <p class="footer-copyright">&copy; 2025 Marcin Śliwiński | Realizacja: 
-                <a href="https://gracjan-gs.github.io/"><span class="footer-copyright--creator">Gracjan Śliwiński</span></a>
-            </p>            
-        </div>            
+header {
+    z-index: 1000;
+}
+s {
+  text-decoration-color: #7a2aea;
+  text-decoration-thickness: 0.2rem;
+}
+
+.parallax {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-1 * (100vw - 100%) / 2);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallax::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 1;
+}
+.parallax > * { position: relative; z-index: 2; }
+@media (min-width: 768px) {
+  .parallax { background-position: center 10%; }
+}
+body { min-height: max(884px, 100dvh); }
+main > section { margin-top: 6rem; margin-bottom: 6rem; }
+html { scroll-behavior: smooth; }
+
+/* === ANIMACJE === */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+[data-delay] { transition-delay: var(--delay, 0s); }
+
+/* Efekt pisania */
+.typewriter {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #8000e2;
+  animation: typing 2s steps(25, end), blink 0.7s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* Fade-in dla startu strony */
+@keyframes appear {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.start-fade {
+  opacity: 0;
+  animation: appear 0.8s ease-out forwards;
+}
+
+/* Hamburger animacja */
+.hamburger {
+  position: relative;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.hamburger span {
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 8px; }
+.hamburger span:nth-child(3) { top: 16px; }
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 8px;
+}
+#join-btn {
+  color: #000000;
+  background: linear-gradient(270deg, #ffffff, #ffffff);
+  background-size: 200% 200%;
+  animation: gradientShift 5s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+#join-btn:hover {
+  transform: scale(1.05);
+}
+
+</style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+  <div class="container mx-auto px-4">
+    <div class="flex items-center justify-between h-16">
+
+     <!-- LOGO + IKONKI -->
+<div class="flex items-center text-white mr-12">
+
+  <!-- LOGO – większe + znika na tabletach i telefonach -->
+  <a href="#home" class="hidden lg:flex items-center">
+    <img src="LogotzsPNG.PNG" 
+         alt="Logo" 
+         class="h-16 w-auto object-contain hover:opacity-80">
+  </a>
+
+<!-- Ikonki -->
+<div class="flex space-x-4 ml-2 md:ml-0 lg:ml-10">
+    <a href="https://www.instagram.com/michal.koziar/" target="_blank" aria-label="Instagram" class="social-icon">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="https://www.tiktok.com/@michalzetoro" target="_blank" aria-label="TikTok" class="social-icon">
+      <i class="fab fa-tiktok"></i>
+    </a>
+    <a href="https://www.facebook.com/michalkoziar/?locale=pl_PL" target="_blank" aria-label="Facebook" class="social-icon">
+      <i class="fab fa-facebook"></i>
+    </a>
+    <a href="https://www.linkedin.com/" target="_blank" aria-label="LinkedIn" class="social-icon">
+      <i class="fab fa-linkedin"></i>
+    </a>
+</div>
+
+</div>
+
+
+      <style>
+      .social-icon i {
+        font-size: 20px;
+        display: inline-block;
+        transition: transform 0.3s ease, opacity 0.6s ease;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .social-icon i.fade-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .social-icon:hover i {
+        transform: scale(1.2) rotate(15deg);
+      }
+      </style>
+
+      <script>
+      window.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.social-icon i').forEach((el, index) => {
+          setTimeout(() => el.classList.add('fade-in'), index * 100);
+        });
+      });
+      </script>
+
+      <!-- MENU GŁÓWNE (desktop) -->
+      <nav class="hidden md:flex space-x-6 text-white">
+        <a href="#home" class="relative group">Home<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#services" class="relative group">O mnie<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#gallery" class="relative group">Styl pracy<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#about" class="relative group">Moja droga<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#about-me" class="relative group">Kim jestem<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#youtube" class="relative group">Współpraca<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#contact" class="relative group">Pomysły<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+
+      </nav>
+
+      <!-- MENU MOBILNE -->
+      <div id="menuToggle" class="hamburger md:hidden z-50">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAWIGACJA MOBILNA -->
+  <nav id="mobileNav"
+    class="fixed top-0 left-0 w-full bg-background-dark/95 backdrop-blur-md text-white flex flex-col items-center justify-center space-y-6 transform -translate-y-full opacity-0 transition-all duration-500 ease-in-out md:hidden h-screen z-40">
+    <a href="#home" class="text-lg hover:text-primary">Home</a>
+    <a href="#services" class="text-lg hover:text-primary">O mnie</a>
+    <a href="#gallery" class="text-lg hover:text-primary">Styl pracy</a>
+    <a href="#about" class="text-lg hover:text-primary">Moja droga</a>
+    <a href="#about-me" class="text-lg hover:text-primary">Kim jestem</a>
+    <a href="#youtube" class="text-lg hover:text-primary">Współpraca</a>
+    <a href="#contact" class="text-lg hover:text-primary">Pomysły</a>
+  </nav>
+  <div id="scrollProgress"></div>
 </header>
 
-<section class="down-section-home">
-  <div class="container">
-    <h2>Marcin Śliwiński</h2>
-    <p>Zdrowie, siła i forma w jednym miejscu – indywidualne podejście do klienta</p>
-    <div class="buttons">
-      <a href="kontakt.html" class="btn btn-blue">Umów trening</a>
-      <a href="tel:+48505848210" class="btn btn-white">Skontaktuj się</a>
+<!-- === MAIN === -->
+<main>
+  <div id="home" class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <div class="parallax relative flex flex-col gap-6 p-6 text-white w-full min-h-screen" style='background-image: url("Marcin śliwiński.jpg");'>
+
+      <div class="absolute left-4 bottom-32 flex flex-col gap-3 text-left max-w-[90%] md:max-w-lg" style="font-family: 'Lexend', 'Noto Sans', sans-serif;">
+        <h1 class="text-white text-4xl md:text-5xl font-normal fade-in leading-snug">
+          Trener personalny
+        </h1>
+
+        <h2 class="text-white text-base md:text-lg font-light fade-in leading-relaxed">
+            Zdrowie, siła i forma w jednym miejscu – indywidualne podejście do klienta
+        </h2>
+
+        <!-- NOWE PRZYCISKI -->
+<div class="flex gap-3 mt-2 fade-in flex-wrap">
+  <!-- Fioletowy button -->
+  <a href="#contact"><button class="relative overflow-hidden flex items-center justify-center rounded-lg h-9 px-5 bg-[#0015ff] text-white text-base font-normal 
+                hover:text-white hover:bg-black hover:shadow-[0_0_50px_rgba(92,92,92,0.8)] transition-all duration-300 w-36 sm:w-40 md:w-48">
+    Umów wizytę
+    <span class="absolute inset-0 bg-purple-500 opacity-20 rounded-lg pointer-events-none transform scale-0 transition-transform duration-500"></span>
+  </button></a>
+
+  <!-- Biały button -->
+  <button class="relative overflow-hidden flex items-center justify-center rounded-lg h-9 px-5 bg-white text-black text-base font-normal 
+                 hover:text-white hover:bg-[#000000] hover:shadow-[0_0_50px_#5C5C5C] transition-colors duration-300 w-36 sm:w-40 md:w-48">
+    Zadzwoń
+    <span class="absolute inset-0 bg-black opacity-10 rounded-lg pointer-events-none transform scale-0 transition-transform duration-500"></span>
+  </button>
+</div>
+
+
+      </div>
     </div>
+  </div>
+</main>
+
+
+
+
+<!-- === POPUP EBOOK === -->
+ <!--
+<div id="ebookPopup"
+     class="fixed inset-0 hidden items-center justify-center z-50 transition-opacity duration-300 opacity-0"
+     style="background-color: rgba(0,0,0,0.6); backdrop-filter: blur(6px);">
+  <div class="bg-black text-white rounded-2xl p-6 w-80 flex flex-col items-center gap-4 shadow-[0_0_50px_#8000e22a]"
+       style="animation: popupIn 300ms ease forwards;">
+    <img src="Marcin Śliwiński.jpg" alt="Okładka eBooka"
+         class="rounded-xl w-full object-cover">
+    <h3 class="text-xl font-bold text-center mt-4">Bezpłatny eBook</h3>
+    <p class="text-gray-300 text-sm text-center">
+      Pobierz mój darmowy eBook i dowiedz się, jak utrzymać dyscyplinę każdego dnia.
+    </p>
+    <a href="ebook.pdf" download
+       class="w-full text-center bg-primary text-white py-2 rounded-lg hover:bg-red-700 transition">
+       Pobierz teraz
+    </a>
+    <button id="closeEbookPopup"
+            class="mt-2 text-sm text-gray-400 hover:text-white transition">
+      Zamknij
+    </button>
+  </div>
+</div>
+-->
+<script>
+  const ebookPopup = document.getElementById('ebookPopup');
+  const closeEbookPopup = document.getElementById('closeEbookPopup');
+
+  function showEbookPopup() {
+    ebookPopup.classList.remove('hidden');
+    ebookPopup.classList.add('flex');
+    void ebookPopup.offsetHeight;
+    ebookPopup.classList.remove('opacity-0');
+    ebookPopup.classList.add('opacity-100');
+  }
+
+  function hideEbookPopup() {
+    ebookPopup.classList.remove('opacity-100');
+    ebookPopup.classList.add('opacity-0');
+    ebookPopup.addEventListener('transitionend', () => {
+      ebookPopup.classList.remove('flex');
+      ebookPopup.classList.add('hidden');
+    }, { once: true });
+  }
+
+  // pokaż popup po każdym odświeżeniu
+  window.addEventListener('load', () => {
+    setTimeout(showEbookPopup, 800);
+  });
+
+  closeEbookPopup.addEventListener('click', hideEbookPopup);
+  ebookPopup.addEventListener('click', e => { if (e.target === ebookPopup) hideEbookPopup(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') hideEbookPopup(); });
+</script>
+
+
+<!-- === POPUP (pewny fallback + optional blur) === -->
+<div id="popup"
+     class="fixed inset-0 hidden items-center justify-center z-50 transition-opacity duration-300 opacity-0"
+     style="background-color: rgba(0,0,0,0.6); /* fallback gdy bg-black/60 nie działa */
+            -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); /* opcjonalny blur */">
+<div id="popup-box" class="bg-black text-white rounded-2xl p-6 w-80 flex flex-col items-center gap-4 border border-white/10 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+       style="animation: popupIn 300ms ease forwards;">
+    <h3 class="text-xl font-bold text-center">Dołącz do społeczności</h3>
+    <div class="flex flex-col gap-3 w-full">
+  <a href="https://www.instagram.com/michal.koziar/" target="_blank"
+     class="w-full text-center bg-pink-700 text-white py-2 rounded-lg hover:bg-pink-600 transition">
+     Instagram
+  </a>
+
+  <a href="https://www.tiktok.com/@michalzetoro" target="_blank"
+     class="w-full text-center bg-[#3a006e] text-white py-2 rounded-lg hover:bg-[#52009e] transition">
+     TikTok
+  </a>
+
+  <a href="https://www.youtube.com/channel/UCcxfnQqSkaQWV03TykKhcTg" target="_blank"
+     class="w-full text-center bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition">
+     YouTube
+  </a>
+</div>
+
+<button id="close-popup"
+        class="mt-4 text-sm text-gray-400 hover:text-white transition">
+  Zamknij
+</button>
+  </div>
+</div>
+
+<style>
+  @keyframes popupIn {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes popupOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 0; transform: translateY(8px) scale(0.98); }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('join-btn');
+  const popup = document.getElementById('popup');
+  const popupBox = document.getElementById('popup-box');
+  const closeBtn = document.getElementById('close-popup');
+
+  function showPopup() {
+    // pokaż kontener (hidden -> flex) i triggeruj przejście opacity
+    popup.classList.remove('hidden');
+    popup.classList.add('flex');
+
+    // wymuś reflow żeby transition zadziałało poprawnie
+    // (czyli przeglądarka "widzi" zmianę opakowania)
+    void popup.offsetHeight;
+
+    popup.classList.remove('opacity-0');
+    popup.classList.add('opacity-100');
+
+    // upewnij się, że box ma wejściową animację
+    popupBox.style.animation = 'popupIn 300ms ease forwards';
+  }
+
+  function hidePopup() {
+    // animacja out dla boxa
+    popupBox.style.animation = 'popupOut 220ms ease forwards';
+
+    // ukryj zasłonę (przez opacity), ale poczekamy na koniec transition aby usunąć flex/hidden
+    popup.classList.remove('opacity-100');
+    popup.classList.add('opacity-0');
+
+    // czekaj na koniec transition opacity (bez setTimeout)
+    function onTransitionEnd(e) {
+      if (e.propertyName === 'opacity') {
+        popup.removeEventListener('transitionend', onTransitionEnd);
+        popup.classList.remove('flex');
+        popup.classList.add('hidden');
+        // przywróć domyślną animację boxa na przyszłość
+        popupBox.style.animation = '';
+      }
+    }
+    popup.addEventListener('transitionend', onTransitionEnd);
+  }
+
+  btn.addEventListener('click', showPopup);
+  closeBtn.addEventListener('click', hidePopup);
+
+  // dodatkowo: kliknięcie poza boxem zamyka popup
+  popup.addEventListener('click', (e) => {
+    if (e.target === popup) hidePopup();
+  });
+
+  // ESC zamyka
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !popup.classList.contains('hidden')) hidePopup();
+  });
+</script>
+
+
+
+<section id="services" class="mt-20">
+  <h2 class="text-gray-800 dark:text-white text-[24px] font-bold px-6 pb-6 fade-in">Krótko O Mnie</h2>
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-6 p-6">
+    <div class="fade-in flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-[#151515] bg-background-dark dark:bg-[#151515] p-6">
+      <div class="text-primary"><span style="color: #8000e2;" class="material-symbols-outlined">fitness_center</span></div>
+      <h3 class="text-gray-900 dark:text-white text-base font-bold">Trening</h3>
+      <p class="text-gray-600 dark:text-[#bdbdbd] text-sm">W moim zyciu trening to podstawa, więc aktywnie trenuje od X lat, budując przy tym kozacką formę zycia.</p>
+    </div>
+
+<div class="fade-in flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-[#151515] bg-background-dark dark:bg-[#151515] p-6">
+  <div class="text-primary"><span style="color: #8000e2;" class="material-symbols-outlined">school</span></div>
+  <h3 class="text-gray-900 dark:text-white text-base font-bold">Moje doświadczenie</h3>
+  <p class="text-gray-600 dark:text-[#bdbdbd] text-sm">W 2024 roku przeprowadziłem 832 treningi personalne. Trenuję od 1998 roku w różnych dyscyplinach – od wyciskania sztangi (rekord 190 kg), przez biegi, po wioślarstwo. 6 lat w krav maga i 3 lata w boksie dały mi dużo doświadczenia. Sukcesy indywidualne i zespołowe pokazują moje nieustanne dążenie do bycia lepszym.</p>
+</div>
+
+
+    <div class="fade-in flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-[#151515] bg-background-dark dark:bg-[#151515] p-6">
+      <div class="text-primary"><span style="color: #8000e2;" class="material-symbols-outlined">handshake</span></div>
+      <h3 class="text-gray-900 dark:text-white text-base font-bold">Chcesz rozpocząć współpracę?</h3>
+      <p class="text-gray-600 dark:text-[#bdbdbd] text-sm">Jeśli szukasz trenera, który połączy bogate doświadczenie sportowe, dużą wiedzę z indywidualnym podejściem i autentyczną pasją do pomagania innym - zapraszam do współpracy. Razem przekroczymy wszelkie granice.</p>
+    </div>
+
+    <div class="fade-in flex flex-col gap-4 rounded-lg border border-gray-200 dark:border-[#151515] bg-background-dark dark:bg-[#151515] p-6">
+      <div class="text-primary"><span style="color: #8000e2;" class="material-symbols-outlined">timer</span></div>
+      <h3 class="text-gray-900 dark:text-white text-base font-bold">Spędzone godziny na siłowni</h3>
+      <p class="text-gray-600 dark:text-[#bdbdbd] text-sm"></p>
+      <span class="text-3xl dark:text-[#bdbdbd]" data-counter="1900">0</span>
+    </div>
+  </div>
+</section>
+
+  
+<section class="bg-background-dark py-16 md:py-24" id="about" class="mt-20">
+<h2 class="fade-in text-gray-800 dark:text-white text-[24px] font-bold px-6 pb-6">Współpraca</h2>
+  <div class="container mx-auto flex flex-col items-center gap-10 px-4 md:px-6">
+    <div class="max-w-3xl text-center fade-in">
+
+      <div class="timeline-container text-left mt-12 relative">
+        
+        <!-- Pasek -->
+        <div class="timeline-line" id="timelineLine"></div>
+
+        <!-- Punkty osi czasu -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4 class="font-bold text-lg">1. Kontakt ze mną</h4>
+            <p class="dark:text-[#bdbdbd]" >Rozpocznijmy naszą wspólną przygodę! Jeśli masz pytania lub chcesz omówić potencjalną współpracę, wyślij mi wiadomość lub zadzwoń  – razem ustalimy, jak najlepiej osiągnąć Twoje cele.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4 class="font-bold text-lg">2. Pierwsze spotkanie</h4>
+            <p class="dark:text-[#bdbdbd]" >Podczas tego spotkania omówimy Twoje cele, dotychczasowe doświadczenie treningowe oraz wszelkie ograniczenia zdrowotne. To doskonała okazja, aby poznać moje metody pracy oraz zapoznać się ze sprzętem i przestrzenią w której będziemy razem pracować.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4 class="font-bold text-lg">3. Początek Twojej przygody</h4>
+            <p class="dark:text-[#bdbdbd]" >Po wcześniejszym pomiarze wagi, składu ciała oraz obwodów przechodzimy do treningu. Skupiamy się na solidnych podstawach i szczególną uwagę zwracamy na technikę wykonywanych ćwiczeń oraz systematycznym monitorowaniu Twoich postępów. Po każdym spotkaniu będziesz miał dostęp do planu treningowego online, który będzie uzupełniany na bieżąco.  </p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h4 class="font-bold text-lg">4. Twoje zadowolenie</h4>
+            <p class="dark:text-[#bdbdbd]" >Każdy kolejny wspólny trening przybliża nas do celu, a to powoduje, że zyskujesz siłę, kondycję, pewność siebie i przejmujesz kontrolę nad swoim ciałem. Nasz trening to proces, w którym krok po kroku pokonujesz własne ograniczenia, uczysz się wytrwałości i budujesz zdrowe nawyki, które zostaną z Tobą na lata.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about-me" class="bg-background-dark py-20 px-6">
+  <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+
+    <!-- SLIDER — dopasowujący się do naturalnej wysokości zdjęć -->
+    <div class="md:w-1/2 flex justify-center">
+      <div class="w-5/6 sm:w-2/3 md:w-[90%] lg:w-[100%] max-w-md overflow-hidden rounded-2xl transition-all duration-500" id="about-slider">
+        <div class="flex transition-transform duration-700" id="about-slider-track">
+          <img src="mainpagephoto.jpeg" class="max-w-full h-auto" />
+          <img src="wspl2.jpg" class="max-w-full h-auto" />
+          <img src="WSPOLPRACAGOT1.png" class="max-w-full h-auto" />
+          <img src="omnie2.2.jpg" class="max-w-full h-auto" />
+        </div>
+      </div>
+    </div>
+
+    <!-- TEKST -->
+    <div class="md:w-1/2 text-center md:text-left fade-in">
+      <h2 class="text-white text-3xl font-bold mb-4">Kim jestem?</h2>
+      <p class="dark:text-[#bdbdbd] text-base leading-relaxed mb-4">
+        Nazywam się <span class="text-primary font-semibold">Marcin Śliwiński</span> i jestem trenerem personalnym z pasją do przekształcania trudnych celów w realne rezultaty. 
+      </p>
+      <p class="dark:text-[#bdbdbd] text-base leading-relaxed mb-4">
+        <span style="color: white;" class="text-primary font-semibold">Jak pracuję?</span> <br>
+        W pracy łączę pasje do zdrowia z indywidualnym podejściem do każdego podopiecznego. Przecież każdy z Was ma inne cele, potrzeby, wyzwania, dlatego stawiam na spersonalizowane plany treningowe, które uwzględniają Twój styl życia, poziom sprawności oraz tempo pracy.
+        Zawsze dbam o Twoją motywację i staram się, abyś odczuwał satysfakcję z każdego małego sukcesu. Kiedy ciężko pracujemy, liczy się nie tylko wynik, ale i droga, którą pokonujemy razem – krok po kroku, trening po treningu.
+        <br><br>Pomagam schudnąć, zmienić sylwetkę, poprawić kondycję fizyczną i ogólny stan zdrowia wykorzystując nowoczesne metody, ciągle poszerzając swoją wiedzę poprzez liczne kursy i szkolenia.
+      </p>
+    </div>
+
   </div>
 </section>
 
 
 
-<div class="desktop-block">
-    <img src="img/LogotzsPNG.PNG" alt="Logo">
-    <h1>TRENUJ ZE ŚLIWKĄ</h1>
-    <h3>Dziękuję za odwiedzenie mojej strony! Wersja na tablety i komputery jest jeszcze niedostępna. Serdecznie zapraszam do korzystania na urządzeniach mobilnych.</h3>
-    <div class="social-icons">
-        <a href="https://www.instagram.com/trenuj_ze_sliwka/"><img class="social-icon" src="img/igMenu.svg" alt="Instagram"></a>
-        <a href="https://www.tiktok.com/@trenuj_ze_sliwka"><img class="social-icon" src="img/tiktokMenu.svg" alt="TikTok"></a>
-        <a href="https://www.facebook.com/p/Trenuj-ze-%C5%9Aliwk%C4%85-61554213402612/"><img class="social-icon" src="img/facebookMenu.svg" alt="Facebook"></a>
-     </div>
-</div>
 
-<script src="mainscript.js"></script>
+<script>
+let idx = 0;
+const slider = document.getElementById("about-slider");
+const track = document.getElementById("about-slider-track");
+const slides = track.children;
+
+function updateHeight() {
+  const current = slides[idx];
+  slider.style.height = current.height + "px";
+}
+
+window.addEventListener("load", updateHeight);
+
+setInterval(() => {
+  idx = (idx + 1) % slides.length;
+  track.style.transform = `translateX(-${idx * 100}%)`;
+  updateHeight();
+}, 3000);
+</script>
+
+<style>
+#about-slider img {
+  flex-shrink: 0;
+  width: 100%;
+  height: auto;
+}
+</style>
+
+
+
+<style>
+.timeline-container {
+  position: relative;
+  max-width: 50rem; /* 800px */
+  margin: 0 auto;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 3.125rem; /* 50px */
+  margin-bottom: 3.75rem; /* 60px */
+  opacity: 0;
+  transform: translateY(1.875rem); /* 30px */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -0.125rem; /* -2px */
+  top: 0; /* wcześniej 8px */
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  border-radius: 50%;
+  background-color: #8000e2;
+  opacity: 1;
+  z-index: 100;
+  box-shadow: 0 0 0.825rem #8000e2, 0 0 0.25rem #8000e2; /* 10px, 20px */
+}
+
+.timeline-line {
+  position: absolute;
+  left: 0.5rem; /* 8px */
+  top: 0.625rem; /* 10px */
+  width: 0.1875rem; /* 3px */
+  height: 0;
+  background: linear-gradient(to bottom, #8000e2 0%, #8000e2 50%, #8000e2 100%);
+  box-shadow: 0 0 0.75rem rgba(53, 25, 96, 0.7); /* 12px */
+  z-index: 2;
+  border-radius: 0.125rem; /* 2px */
+  transition: height 0.15s linear;
+}
+
+.timeline-content {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 1.25rem; /* 20px */
+  border-radius: 0.5rem; /* 8px */
+  border-left: 0.1875rem solid #ffffff; /* 3px */
+  color: white;
+}
+</style>
+
+
+<script>
+let lastScrollY = 0;
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+  lastScrollY = window.scrollY;
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      handleTimelineScroll(lastScrollY);
+      ticking = false;
+    });
+    ticking = true;
+  }
+});
+
+function handleTimelineScroll(scrollY) {
+  const section = document.querySelector('#about');
+  const line = document.querySelector('#timelineLine');
+  const items = section.querySelectorAll('.timeline-item');
+  const rect = section.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  if (rect.top < windowHeight && rect.bottom > 0) {
+    const start = scrollY + rect.top - windowHeight * 0.3;
+    const end = scrollY + rect.bottom - windowHeight * 0.6;
+    const rawProgress = (scrollY - start) / (end - start);
+    const progress = Math.min(1, Math.max(0, rawProgress * 1.2));
+
+    const firstItem = items[0].offsetTop + 20;
+    const lastItem = items[items.length - 1].offsetTop + 30;
+    const maxHeight = lastItem - firstItem;
+
+    line.style.height = maxHeight * progress + 'px';
+
+    items.forEach(item => {
+      const itemTop = item.offsetTop - firstItem - 40;
+      item.classList.toggle('visible', maxHeight * progress >= itemTop);
+    });
+  }
+}
+</script>
+
+
+
+<style>
+/* Twój istniejący CSS tutaj… (fade-in, parallax, hamburger, etc.) */
+
+/* === PASEK POSTĘPU === */
+#scrollProgress {
+  position: absolute;
+  bottom: 0; /* linia idealnie na dole navbara */
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(to right, #0015ff, #8000e2);
+  transition: width 0.1s ease;
+}
+header {
+  position: sticky; /* już masz */
+  top: 0;
+}
+</style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+
+<!-- Pasek przewijania -->
+<div id="scrollProgress"></div>
+
+<header class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+  <!-- Twój header -->
+</header>
+
+<main>
+  <!-- Twój content: parallax, sections, galerie, newsletter -->
+</main>
+
+<footer class="bg-background-dark text-gray-400 py-10 mt-16 fade-in">
+  <!-- Twój footer -->
+</footer>
+
+<script>
+let scrollTarget = 0;
+let scrollCurrent = 0;
+const scrollBar = document.getElementById('scrollProgress');
+
+function updateScrollBar() {
+  scrollCurrent += (scrollTarget - scrollCurrent) * 0.1; // im mniejsza wartość, tym wolniej
+  scrollBar.style.width = scrollCurrent + '%';
+  requestAnimationFrame(updateScrollBar);
+}
+updateScrollBar();
+
+window.addEventListener('scroll', () => {
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  scrollTarget = (window.scrollY / docHeight) * 100;
+});
+</script>
+
+
+
+<h2 class="fade-in text-gray-800 dark:text-white text-[24px] font-bold px-6 pb-6">Opinie</h2>
+<!-- Elfsight Google Reviews | Untitled Google Reviews -->
+<script src="https://elfsightcdn.com/platform.js" async></script>
+<div class="elfsight-app-c287c3db-674c-491a-8e17-28c79a14afee" data-elfsight-app-lazy></div>
+
+
+
+
+
+<style>
+  .gallery-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  height: 500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 2rem auto; /* wyśrodkowanie + dolny margines */
+}
+
+  .gallery-container img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: opacity 1s ease, transform 1s ease;
+    opacity: 0;
+  }
+
+  .gallery-container img.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+  }
+
+  .gallery-container img.prev,
+  .gallery-container img.next {
+    opacity: 0.3;
+    transform: scale(0.8);
+    z-index: 1;
+  }
+
+</style>
+<div class="mb-4 mt-8"></div>
+			<div class="gallery-container mb-4 mt-8">
+  <img src="C1.jpg" class="active">
+  <img src="C2.jpg">
+  <img src="C3.jpg">
+  <img src="C4.jpg">
+  <img src="C5.jpg">
+  <img src="C6.jpg">
+  <img src="C7.jpg">
+  <img src="C8.jpg">
+  <img src="C9.jpg">
+  <img src="Cert.JPG">
+  <!-- Dodaj kolejne zdjęcia tutaj -->
+</div>
+<script>
+  const images = document.querySelectorAll('.gallery-container img');
+  let current = 0;
+
+  function showNextImage() {
+    images[current].classList.remove('active');
+    images[current].classList.add('prev');
+
+    current = (current + 1) % images.length;
+
+    images.forEach((img, i) => {
+      img.classList.remove('prev', 'next');
+      if (i === (current + 1) % images.length) img.classList.add('next');
+    });
+
+    images[current].classList.add('active');
+  }
+
+  // Inicjalizacja klas bocznych
+  images[(current + 1) % images.length].classList.add('next');
+
+  setInterval(showNextImage, 3000); // zmiana co 4 sekundy
+</script>
+
+
+
+
+<!-- <section id="opinie" class="bg-background-dark py-20 px-6">
+  <h2 class="text-white text-[24px] font-bold mb-10 fade-in">Opinie podopiecznych</h2>
+
+  <div class="relative overflow-hidden max-w-3xl mx-auto">
+
+    <div id="opinieTrack" class="flex transition-transform duration-700 ease-out"></div>
+
+    <div id="opinieDots" class="flex justify-center gap-3 mt-6"></div>
+
+
+    <div class="mt-6 flex justify-center">
+      <a href="#" target="_blank" class="opacity-60 hover:opacity-100 transition">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png" alt="Google" class="w-8 h-8">
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+const opinie = [
+  { ocena: 5, tekst: "Najlepsze treningi w życiu. Zero lania wody, pełen konkret.", autor: "Kamil" },
+  { ocena: 4, tekst: "W końcu ktoś, kto wymaga, ale też tłumaczy jak człowiek.", autor: "Marek" },
+  { ocena: 5, tekst: "Mega atmosfera i profesjonalne podejście.", autor: "Ania" },
+  { ocena: 4, tekst: "Świetne podejście do techniki.", autor: "Oskar" },
+  { ocena: 5, tekst: "System i dyscyplina. Progres.", autor: "Sara" },
+  { ocena: 5, tekst: "Polecam każdemu.", autor: "Darek" },
+  { ocena: 4, tekst: "Solidna robota.", autor: "Wojtek" },
+  { ocena: 5, tekst: "Najbardziej merytoryczny trener.", autor: "Paweł" },
+  { ocena: 5, tekst: "Świetne dobranie planu.", autor: "Igor" },
+  { ocena: 4, tekst: "Każda sesja to krok do przodu.", autor: "Monika" },
+  { ocena: 5, tekst: "Widać pasję.", autor: "Szymon" },
+  { ocena: 4, tekst: "Poukładane i skuteczne.", autor: "Maja" },
+  { ocena: 5, tekst: "Super dla początkujących.", autor: "Ewelina" },
+  { ocena: 4, tekst: "Wymagający, ale fair.", autor: "Adrian" },
+  { ocena: 5, tekst: "Świetna decyzja.", autor: "Julia" },
+  { ocena: 5, tekst: "Mega motywacja.", autor: "Artur" },
+  { ocena: 4, tekst: "Widać doświadczenie.", autor: "Jarek" },
+  { ocena: 5, tekst: "Profesjonalne prowadzenie.", autor: "Patryk" },
+  { ocena: 4, tekst: "Efekty szybkie.", autor: "Kuba" },
+  { ocena: 5, tekst: "Świetne tempo.", autor: "Karolina" },
+  { ocena: 5, tekst: "Plan dopracowany.", autor: "Natalia" },
+  { ocena: 4, tekst: "Technika siłowa ogarnięta.", autor: "Michał" },
+  { ocena: 5, tekst: "Wiedza na poziomie.", autor: "Krzysiek" },
+  { ocena: 4, tekst: "Polecam.", autor: "Bartek" },
+  { ocena: 5, tekst: "Najwyższa motywacja.", autor: "Dominika" },
+  { ocena: 4, tekst: "Progres stabilny.", autor: "Tomek" },
+  { ocena: 5, tekst: "Świetna energia.", autor: "Kasia" },
+  { ocena: 4, tekst: "Zacząłem trenować porządnie.", autor: "Błażej" },
+  { ocena: 5, tekst: "Najlepszy trener.", autor: "Rafał" },
+  { ocena: 4, tekst: "Polecam zapracowanym.", autor: "Eliza" },
+  { ocena: 5, tekst: "Świetna mobilność.", autor: "Ala" },
+  { ocena: 4, tekst: "Logiczny trening.", autor: "Seweryn" },
+  { ocena: 5, tekst: "Czysty konkret.", autor: "Piotr" },
+  { ocena: 4, tekst: "Powrót po kontuzji udany.", autor: "Iza" },
+  { ocena: 5, tekst: "Ćwiczenia dobrane idealnie.", autor: "Filip" },
+  { ocena: 4, tekst: "Progres co tydzień.", autor: "Basia" },
+  { ocena: 5, tekst: "Konsekwencja i jakość.", autor: "Olek" },
+  { ocena: 5, tekst: "Robota robiona.", autor: "Maciek" },
+  { ocena: 4, tekst: "Organizacja perfekcyjna.", autor: "Lena" },
+];
+
+const track = document.getElementById("opinieTrack");
+const dotsContainer = document.getElementById("opinieDots");
+
+opinie.forEach((opinia) => {
+  const gwiazdki = Array.from({ length: 5 })
+    .map((_, i) =>
+      i < opinia.ocena
+        ? `<span class="text-yellow-400 text-xl">★</span>`
+        : `<span class="text-gray-600 text-xl">★</span>`
+    )
+    .join("");
+
+  track.innerHTML += `
+    <div class="min-w-full px-6">
+      <div class="bg-[#111] border border-white/10 rounded-2xl p-6 text-gray-300 shadow-[0_0_20px_#8000e233]">
+        <div class="flex items-center gap-2 mb-3">
+          <div class="flex">${gwiazdki}</div>
+          <span class="text-gray-400 text-sm">${opinia.ocena}/5</span>
+        </div>
+
+        <p class="text-100 mb-4">„${opinia.tekst}”</p>
+        <h4 class="text-white font-bold text-base">– ${opinia.autor}</h4>
+      </div>
+    </div>
+  `;
+});
+
+const itemsPerDot = 2;
+const totalDots = Math.ceil(opinie.length / itemsPerDot);
+
+for (let i = 0; i < totalDots; i++) {
+  dotsContainer.innerHTML += `
+    <button data-block="${i}" class="dot w-3 h-3 rounded-full bg-white/20"></button>
+  `;
+}
+
+const dots = document.querySelectorAll(".dot"); -->
+<script>
+let index = 0;
+function updateSlider() {
+  track.style.transform = `translateX(-${index * 100}%)`;
+
+  dots.forEach(d => d.classList.remove("bg-white"));
+  dots.forEach(d => d.classList.add("bg-white/20"));
+
+  const activeDot = Math.floor(index / itemsPerDot);
+  dots[activeDot].classList.remove("bg-white/20");
+  dots[activeDot].classList.add("bg-white");
+}
+
+dots.forEach(dot => {
+  dot.addEventListener("click", () => {
+    const block = Number(dot.dataset.block);
+    index = block * itemsPerDot;
+    updateSlider();
+  });
+});
+
+setInterval(() => {
+  index = (index + 1) % opinie.length;
+  updateSlider();
+}, 4500);
+
+updateSlider();
+</script>
+  </div>
+</section>
+
+<script>
+const textarea = document.getElementById('idea');
+textarea.addEventListener('input', () => {
+  textarea.style.height = 'auto';
+  textarea.style.height = textarea.scrollHeight + 'px';
+});
+</script>
+
+<section id="contact" class="bg-background-dark py-16 px-6">
+<h2 class="fade-in text-gray-800 dark:text-white text-[24px] font-bold px-6 pb-6">Kontakt</h2>
+  <div id="contact-buttons" class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6">
+
+    <a href="tel:+48505848210" class="contact-btn flex flex-col items-center justify-center bg-[#1a1a1a] hover:bg-[#008709] transition-colors text-white py-6 rounded-xl shadow-lg" data-color="#008709">
+      <i class="fas fa-phone-alt text-3xl mb-3"></i>
+      <span>Zadzwoń</span>
+    </a>
+
+    <a href="sms:+48505848210" class="contact-btn flex flex-col items-center justify-center bg-[#1a1a1a] hover:bg-[#8000e2] transition-colors text-white py-6 rounded-xl shadow-lg" data-color="#8000e2">
+      <i class="fas fa-sms text-3xl mb-3"></i>
+      <span>Wyślij SMS</span>
+    </a>
+
+    <a href="https://wa.me/48123456789" target="_blank" class="contact-btn flex flex-col items-center justify-center bg-[#1a1a1a] hover:bg-[#25D366] transition-colors text-white py-6 rounded-xl shadow-lg" data-color="#25D366">
+      <i class="fab fa-whatsapp text-3xl mb-3"></i>
+      <span>WhatsApp</span>
+    </a>
+
+    <a href="https://m.me/michal.koziar" target="_blank" class="contact-btn flex flex-col items-center justify-center bg-[#1a1a1a] hover:bg-[#0084FF] transition-colors text-white py-6 rounded-xl shadow-lg" data-color="#0084FF">
+      <i class="fab fa-facebook-messenger text-3xl mb-3"></i>
+      <span>Messenger</span>
+    </a>
+
+    <a href="https://www.instagram.com/michal.koziar/" target="_blank" class="contact-btn flex flex-col items-center justify-center bg-[#1a1a1a] hover:bg-[#E1306C] transition-colors text-white py-6 rounded-xl shadow-lg" data-color="#E1306C">
+      <i class="fab fa-instagram text-3xl mb-3"></i>
+      <span>Instagram</span>
+    </a>
+
+  </div>
+</section>
+
+<style>
+@keyframes slowPulse {
+  0%, 100% { background-color: #1a1a1a; }
+  50% { background-color: var(--pulse-color); }
+}
+
+.contact-btn.animate {
+  animation: slowPulse 0.8s ease-in-out;
+}
+</style>
+
+<script>
+const buttons = document.querySelectorAll('.contact-btn');
+
+const observer = new IntersectionObserver((entries, obs) => {
+  if(entries[0].isIntersecting) {
+    buttons.forEach((btn, i) => {
+      setTimeout(() => {
+        btn.style.setProperty('--pulse-color', btn.dataset.color);
+        btn.classList.add('animate');
+      }, i * 400); // wolniejsza sekwencja: co 0.4s
+    });
+    obs.disconnect(); // tylko raz
+  }
+}, { threshold: 0.3 });
+
+observer.observe(document.getElementById('contact-buttons'));
+</script>
+
+
+<footer class="bg-background-dark text-gray-400 py-10 mt-16 fade-in">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center md:text-left">
+  </div>
+
+  <div class="mt-10 border-t border-gray-700 pt-6 text-center text-sm text-gray-500">
+    © <span id="year"></span> Michał Koziar. Wszystkie prawa zastrzeżone | Realizacja: <a href="https://gracjan-gs.github.io/" target="_blank"><span style="color: #ea2b33; text-decoration: underline;">Gracjan Śliwiński.</span></a>
+    <br>
+    <span class="inline-block mt-3">
+      <i class="fa-solid fa-up-right-from-square mr-1" style="color: #ffffff;"></i>
+      <a href="#" class="hover:text-primary transition" style="color: #ffffff;">Polityka prywatności</a>
+    </span>
+  </div>
+</footer>
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</main>
+  </section>
+<style>
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.25, 1, 0.5, 1), transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: opacity, transform;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+
+<script>
+// ENERGICZNY, ALE PŁYNNIEJSZY FADE-IN OBSERVER
+const fadeEls = document.querySelectorAll('.fade-in');
+
+if (fadeEls.length) {
+  const observer = new IntersectionObserver((entries, obs) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      const el = e.target;
+      el.style.transitionDelay = el.dataset.delay || '0s';
+      el.classList.add('visible');
+      obs.unobserve(el);
+    }
+  }, { threshold: 0.05 });
+
+  fadeEls.forEach(el => observer.observe(el));
+}
+</script>
+
+<!-- === SCRIPTS === -->
+<script>
+function animateValue(el, start, end, duration) {
+  let startTime = null;
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+    const value = Math.floor(progress * (end - start) + start);
+    el.textContent = value.toLocaleString("pl-PL") + " +";
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll("[data-counter]");
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const end = parseInt(el.getAttribute("data-counter"), 10);
+        animateValue(el, 0, end, 2000);
+        obs.unobserve(el); // tylko raz
+      }
+    });
+  }, { threshold: 0.4 }); // 0.4 = 40% widoczności
+
+  counters.forEach(el => observer.observe(el));
+});
+</script>
+
+
+<script>
+
+// MENU MOBILE — animacja + hamburger w X
+const toggleBtn = document.getElementById('menuToggle');
+const mobileNav = document.getElementById('mobileNav');
+let menuOpen = false;
+
+toggleBtn.addEventListener('click', () => {
+  menuOpen = !menuOpen;
+  toggleBtn.classList.toggle('active', menuOpen);
+  if (menuOpen) {
+    mobileNav.classList.remove('-translate-y-full', 'opacity-0');
+    mobileNav.classList.add('translate-y-0', 'opacity-100');
+  } else {
+    mobileNav.classList.add('-translate-y-full', 'opacity-0');
+    mobileNav.classList.remove('translate-y-0', 'opacity-100');
+  }
+});
+
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileNav.classList.add('-translate-y-full', 'opacity-0');
+    mobileNav.classList.remove('translate-y-0', 'opacity-100');
+    toggleBtn.classList.remove('active');
+    menuOpen = false;
+  });
+});
+</script>
+<script>
+// Paralaksa
+const parallaxElements = document.querySelectorAll('.parallax');
+const isMobile = /Mobi|Android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent);
+if (isMobile) {
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.pageYOffset;
+    parallaxElements.forEach(el => {
+      el.style.backgroundPosition = `center ${scrollPos * 0.5}px`;
+    });
+  });
+} else {
+  parallaxElements.forEach(el => el.style.backgroundAttachment = 'fixed');
+}
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const sections = Array.from(navLinks)
+    .map(link => document.querySelector(link.getAttribute("href")))
+    .filter(Boolean);
+
+  // Dodajemy transition do każdego linka
+  navLinks.forEach(link => {
+    link.classList.add("transition-colors", "duration-300", "ease-in-out");
+  });
+
+  function setActiveLink(id) {
+    navLinks.forEach(link => {
+      link.classList.toggle("text-[#9e9e9e]", link.getAttribute("href") === `#${id}`);
+    });
+  }
+
+  function onScroll() {
+    let closestSection = null;
+    let minDist = Infinity;
+    const viewportCenter = window.innerHeight / 2;
+
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const sectionCenter = rect.top + rect.height / 2;
+      const dist = Math.abs(sectionCenter - viewportCenter);
+      if (dist < minDist) {
+        minDist = dist;
+        closestSection = section;
+      }
+    });
+
+    if (closestSection) setActiveLink(closestSection.id);
+  }
+
+  window.addEventListener("scroll", onScroll);
+  onScroll(); // ustawienie aktywnego linka przy załadowaniu strony
+});
+</script>
+
+
 </body>
 </html>
