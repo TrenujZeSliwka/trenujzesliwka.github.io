@@ -241,12 +241,12 @@ html { scroll-behavior: smooth; }
       <!-- MENU GŁÓWNE (desktop) -->
       <nav class="hidden md:flex space-x-6 text-white">
         <a href="#home" class="relative group">Home<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
-        <a href="#services" class="relative group">O mnie<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
-        <a href="#gallery" class="relative group">Styl pracy<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
-        <a href="#about" class="relative group">Moja droga<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
-        <a href="#about-me" class="relative group">Kim jestem<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
-        <a href="#youtube" class="relative group">Współpraca<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
-        <a href="#contact" class="relative group">Pomysły<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#services" class="relative group">Czy to dla ciebie<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#about" class="relative group">Współpraca<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#kto" class="relative group">O mnie<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#opinie" class="relative group">Opinie<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#cert" class="relative group">Certyfikaty<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
+        <a href="#contact" class="relative group">Kontakt<span class="absolute left-0 -bottom-1 w-0 h-0.5 dark:bg-[#8000e2] transition-all group-hover:w-full"></span></a>
 
       </nav>
 
@@ -261,12 +261,12 @@ html { scroll-behavior: smooth; }
   <nav id="mobileNav"
     class="fixed top-0 left-0 w-full bg-background-dark/95 backdrop-blur-md text-white flex flex-col items-center justify-center space-y-6 transform -translate-y-full opacity-0 transition-all duration-500 ease-in-out md:hidden h-screen z-40">
     <a href="#home" class="text-lg hover:text-primary">Home</a>
-    <a href="#services" class="text-lg hover:text-primary">O mnie</a>
-    <a href="#gallery" class="text-lg hover:text-primary">Styl pracy</a>
-    <a href="#about" class="text-lg hover:text-primary">Moja droga</a>
-    <a href="#about-me" class="text-lg hover:text-primary">Kim jestem</a>
-    <a href="#youtube" class="text-lg hover:text-primary">Współpraca</a>
-    <a href="#contact" class="text-lg hover:text-primary">Pomysły</a>
+    <a href="#services" class="text-lg hover:text-primary">Czy to dla ciebie</a>
+    <a href="#about" class="text-lg hover:text-primary">Współpraca</a>
+    <a href="#kto" class="text-lg hover:text-primary">O mnie</a>
+    <a href="#opinie" class="text-lg hover:text-primary">Opinie</a>
+    <a href="#cert" class="text-lg hover:text-primary">Certyfikaty</a>
+    <a href="#contact" class="text-lg hover:text-primary">Kontakt</a>
   </nav>
   <div id="scrollProgress"></div>
 </header>
@@ -702,7 +702,7 @@ to
     </div>
 
     <!-- TEKST -->
-    <div class="md:w-1/2 text-center md:text-left fade-in">
+    <div class="md:w-1/2 text-center md:text-left fade-in" id="kto">
       <h2 class="text-white text-3xl font-bold mb-4">Kim jestem?</h2>
       <p class="dark:text-[#bdbdbd] text-base leading-relaxed mb-4">
         Nazywam się <span class="text-primary font-semibold">Marcin Śliwiński</span> i jestem trenerem personalnym z pasją do przekształcania trudnych celów w realne rezultaty. 
@@ -921,14 +921,14 @@ window.addEventListener('scroll', () => {
 </script>
 
 
-
+<div id="opinie">
 <h2 class="fade-in text-gray-800 dark:text-white text-[24px] font-bold px-6 pb-6">Opinie</h2>
 <!-- Elfsight Google Reviews | Untitled Google Reviews -->
 <script src="https://elfsightcdn.com/platform.js" async></script>
 <div class="elfsight-app-c287c3db-674c-491a-8e17-28c79a14afee" data-elfsight-app-lazy></div>
 
 
-
+</div>
 
 
 <style>
@@ -967,6 +967,8 @@ window.addEventListener('scroll', () => {
   }
 
 </style>
+  <h2  id="cert" class="text-gray-800 dark:text-white text-[24px] font-bold px-6 pb-6 fade-in">Certyfikaty</h2>
+
 <div class="mb-4 mt-8"></div>
 			<div class="gallery-container mb-4 mt-8">
   <img src="C1.jpg" class="active">
@@ -1377,4 +1379,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </body>
-</html>
+</html>s
+	
