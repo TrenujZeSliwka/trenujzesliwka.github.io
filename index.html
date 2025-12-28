@@ -1208,37 +1208,50 @@ const observer = new IntersectionObserver((entries, obs) => {
 
 observer.observe(document.getElementById('contact-buttons'));
 </script>
-  <!-- POLITYKA PRYWATNOŚCI MODAL -->
-<div id="privacyModal" class="fixed inset-0 z-[9999] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center px-6">
+
+<!-- POLITYKA PRYWATNOŚCI MODAL -->
+<div id="privacyModal"
+     class="fixed inset-0 z-[9999] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center px-4">
 
   <!-- X -->
-  <button id="closePrivacy" class="absolute top-6 right-6 text-white text-2xl hover:opacity-70">
+  <button id="closePrivacy"
+          class="fixed top-4 right-4 text-white text-2xl z-10 hover:opacity-70">
     <i class="fa-solid fa-xmark"></i>
   </button>
 
-  <!-- CONTENT -->
-  <div class="max-w-3xl w-full text-white text-center">
-    <h2 class="text-2xl font-bold mb-6">Polityka prywatności</h2>
+  <!-- SCROLL CONTAINER -->
+  <div class="w-full max-w-3xl max-h-[85vh] overflow-y-auto
+              text-white bg-black/40 rounded-2xl p-6 md:p-8">
 
-            <p>
-        Administrator danych osobowych: Marcin Śliwiński.<br><br>
-        Twoja prywatność jest dla mnie ważna. Niniejsza polityka informuje, jakie dane mogą być przetwarzane podczas korzystania ze strony i w jakim celu.<br><br>
-        1. Dane zbierane przez stronę:<br>
-        Strona nie zbiera żadnych danych osobowych bezpośrednio od użytkownika. Nie ma formularzy, pól do wpisywania treści ani mechanizmów rejestracji.<br><br>
-        2. Kontakt za pomocą przycisków:<br>
-        Użytkownik może korzystać z przycisków (buttonów), które przekierowują do: Instagram, SMS, połączeń telefonicznych, Messengera lub WhatsApp. Podczas korzystania z tych buttonów, dane kontaktowe są przekazywane wyłącznie w zakresie wymaganym przez wybraną platformę i pozostają poza kontrolą tej strony.<br><br>
-        3. Statystyki i narzędzia analityczne:<br>
-        Strona korzysta ze statystyk Google w celu monitorowania ruchu oraz poprawy jakości strony. Nie są zbierane żadne dane osobowe ani nie jest prowadzona personalizacja użytkowników.<br><br>
-        4. Prawa użytkownika:<br>
-        Użytkownik ma prawo do wglądu w swoje dane, żądania ich poprawienia lub usunięcia, a także prawo do cofnięcia zgody na przetwarzanie danych w zakresie, w jakim zostały udostępnione przez zewnętrzne platformy (np. Instagram, WhatsApp).<br><br>
-        5. Bezpieczeństwo danych:<br>
-        Administrator stosuje odpowiednie środki techniczne i organizacyjne, aby chronić dane przed nieuprawnionym dostępem, utratą lub udostępnieniem.<br><br>
-        6. Zmiany polityki prywatności:<br>
-        Polityka może być aktualizowana w zależności od zmian funkcjonalności strony lub obowiązujących przepisów prawnych. Data ostatniej aktualizacji: 22 grudnia 2025.
-</p>
+    <h2 class="text-2xl font-bold mb-6 text-center">
+      Polityka prywatności
+    </h2>
+
+    <p class="text-gray-300 leading-relaxed text-sm md:text-base">
+      Administrator danych osobowych: Marcin Śliwiński.<br><br>
+      Twoja prywatność jest dla mnie ważna. Niniejsza polityka informuje, jakie dane mogą być przetwarzane podczas korzystania ze strony i w jakim celu.<br><br>
+
+      <strong>1. Dane zbierane przez stronę:</strong><br>
+      Strona nie zbiera żadnych danych osobowych bezpośrednio od użytkownika. Nie ma formularzy, pól do wpisywania treści ani mechanizmów rejestracji.<br><br>
+
+      <strong>2. Kontakt za pomocą przycisków:</strong><br>
+      Użytkownik może korzystać z przycisków (buttonów), które przekierowują do: Instagram, SMS, połączeń telefonicznych, Messengera lub WhatsApp. Podczas korzystania z tych buttonów, dane kontaktowe są przekazywane wyłącznie w zakresie wymaganym przez wybraną platformę i pozostają poza kontrolą tej strony.<br><br>
+
+      <strong>3. Statystyki i narzędzia analityczne:</strong><br>
+      Strona korzysta ze statystyk Google w celu monitorowania ruchu oraz poprawy jakości strony. Nie są zbierane żadne dane osobowe ani nie jest prowadzona personalizacja użytkowników.<br><br>
+
+      <strong>4. Prawa użytkownika:</strong><br>
+      Użytkownik ma prawo do wglądu w swoje dane, żądania ich poprawienia lub usunięcia, a także prawo do cofnięcia zgody na przetwarzanie danych w zakresie, w jakim zostały udostępnione przez zewnętrzne platformy.<br><br>
+
+      <strong>5. Bezpieczeństwo danych:</strong><br>
+      Administrator stosuje odpowiednie środki techniczne i organizacyjne, aby chronić dane przed nieuprawnionym dostępem, utratą lub udostępnieniem.<br><br>
+
+      <strong>6. Zmiany polityki prywatności:</strong><br>
+      Polityka może być aktualizowana. Data ostatniej aktualizacji: 22 grudnia 2025.
+    </p>
   </div>
-
 </div>
+
 
 <footer class="bg-background-dark text-gray-400 py-10 mt-16 fade-in">
   <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10 text-center md:text-left">
