@@ -51,12 +51,12 @@ tailwind.config = {
 <meta name="twitter:description" content="Marcin Śliwiński – profesjonalny trener personalny z Gdyni. Treningi personalne, siłownia i fitness w Trójmieście.">
 <style>
 .parallax {
-  background-image: url("MStelefony.jpg");
+  background-image: url("MobileFoto.png");
 }
 
 @media (min-width: 768px) {
   .parallax {
-    background-image: url("MSPC.jpg");
+    background-image: url("PC.png");
   }
 }
 
@@ -403,8 +403,8 @@ html { scroll-behavior: smooth; }
 
 
 
-<!-- 
-<style>
+
+<!-- <style>
 #giftPopup {
   position: fixed;
   inset: 0;
@@ -1398,19 +1398,50 @@ mobileNav.querySelectorAll('a').forEach(link => {
 });
 </script>
 <script>
-// Paralaksa
-const parallaxElements = document.querySelectorAll('.parallax');
-const isMobile = /Mobi|Android/i.test(navigator.userAgent) || /iPad|iPhone|iPod/.test(navigator.userAgent);
-if (isMobile) {
-  window.addEventListener('scroll', () => {
-    const scrollPos = window.pageYOffset;
-    parallaxElements.forEach(el => {
-      el.style.backgroundPosition = `center ${scrollPos * 0.5}px`;
+document.addEventListener("DOMContentLoaded", () => {
+  const parallaxElements = document.querySelectorAll('.parallax');
+  let visibleElements = [];
+
+  // 1. Sprawdzamy, które sekcje są na ekranie, by nie przeciążać procesora
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        visibleElements.push(entry.target);
+      } else {
+        visibleElements = visibleElements.filter(el => el !== entry.target);
+      }
     });
-  });
-} else {
-  parallaxElements.forEach(el => el.style.backgroundAttachment = 'fixed');
-}
+  }, { threshold: 0 });
+
+  parallaxElements.forEach(el => observer.observe(el));
+
+  // 2. Super płynna pętla animacji (wywoływana przez kartę graficzną)
+  function renderParallax() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const windowHeight = window.innerHeight;
+
+    visibleElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      // Obliczamy pozycję sekcji względem okna przeglądarki
+      const elementTopFromWindow = rect.top;
+      
+      // Mnożnik prędkości (0.3). Możesz go zmienić (np. 0.4 dla mocniejszego efektu)
+      const speed = 0.3; 
+      
+      // Wyliczamy przesunięcie tła tak, by ruch zaczynał się idealnie w momencie wejścia sekcji na ekran
+      const yPos = -(elementTopFromWindow * speed);
+
+      // Zapisujemy pozycję. Wartość 'center' centruje zdjęcie w poziomie
+      el.style.backgroundPosition = `center ${yPos}px`;
+    });
+
+    // Prosimy przeglądarkę o kolejną klatkę w zgodzie z odświeżaniem ekranu
+    requestAnimationFrame(renderParallax);
+  }
+
+  // Uruchamiamy pętlę
+  requestAnimationFrame(renderParallax);
+});
 </script>
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1456,4 +1487,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
-
